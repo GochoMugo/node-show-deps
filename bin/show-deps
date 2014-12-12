@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+
+// just require ../index.js
+require("../index");

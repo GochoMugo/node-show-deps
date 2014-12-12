@@ -1,0 +1,34 @@
+{
+  "name": "show-deps",
+  "description": "A command-line utility for showing dependencies from a project's `package.json` in a fashionable way",
+  "version": "0.0.0-alpha.1.0",
+  "homepage": "https://github.com/forfuture-dev/node-show-deps",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forfuture-dev/node-show-deps.git"
+  },
+  "bugs": "https://github.com/forfuture-dev/node-show-deps/issues",
+  "license": "MIT",
+  "author": {
+    "name": "GochoMugo",
+    "email": "mugo@forfuture.co.ke"
+  },
+  "keywords": [
+    "command-line",
+    "dependencies",
+    "package.json"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha tests/test.*"
+  },
+  "bin": {
+    "show-deps": "./bin/show-deps"
+  },
+  "dependencies": {
+    "cli-table": "^0.3.1"
+  },
+  "devDependencies": {
+    "mocha": "^2.0.1"
+  }
+}
