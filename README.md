@@ -8,7 +8,7 @@ A command-line utility for showing dependencies from a project's
 
 |aspect|detail|
 |-------|-----:|
-|version|0.0.0-alpha.2.0|
+|version|0.0.0-alpha.3.0|
 |dependencies|none|
 |node|0.11, 0.10|
 |last updated|13th December, 2014|
@@ -37,6 +37,10 @@ __I want to see all the dependencies stated in my current directory__
 │ Depedency │ Version │
 ├───────────┼─────────┤
 │ cli-table │ ^0.3.1  │
+├───────────┼─────────┤
+│ commander │ ^2.5.0  │
+├───────────┼─────────┤
+│ debug     │ ^2.1.0  │
 └───────────┴─────────┘
 
 ┌───────────────┬─────────┐

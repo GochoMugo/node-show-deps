@@ -1,7 +1,7 @@
 {
   "name": "show-deps",
   "description": "A command-line utility for showing dependencies from a project's `package.json` in a fashionable way",
-  "version": "0.0.0-alpha.2.0",
+  "version": "0.0.0-alpha.3.0",
   "homepage": "https://github.com/forfuture-dev/node-show-deps",
   "repository": {
     "type": "git",
@@ -27,7 +27,8 @@
   },
   "dependencies": {
     "cli-table": "^0.3.1",
-    "commander": "^2.5.0"
+    "commander": "^2.5.0",
+    "debug": "^2.1.0"
   },
   "devDependencies": {
     "mocha": "^2.0.1"
