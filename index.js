@@ -1,4 +1,3 @@
-#!/usr/bin/env node
 /**
 * Using a package.json, generates output about the dependencies of
 * a module
@@ -18,7 +17,6 @@ var depsTable;
 var devDepsTable;
 var inputJSON;
 var outputString;
-var packageRegExp = new RegExp(/\/package.json$/);
 var Table;
 
 
@@ -160,6 +158,7 @@ function fillTable(propsObj, table) {
 }
 
 
+// preparing for concatenation
 outputString = "";
 
 
