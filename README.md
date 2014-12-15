@@ -8,7 +8,7 @@ A command-line utility for showing dependencies from a project's
 
 |aspect|detail|
 |-------|-----:|
-|version|0.0.0-alpha.4.0|
+|version|0.0.0-alpha.4.1|
 |dependencies|none|
 |node|0.11, 0.10|
 |last updated|15th December, 2014|
@@ -31,23 +31,25 @@ use `sudo npm install --global show-deps` if necessary.
 __I want to see all the dependencies stated in my current directory__
 
 ```shell
-⇒  show-deps
+⇒  show-deps 
 
-┌───────────┬─────────┐
+┌────────────┬─────────┐
 │ Dependency │ Version │
-├───────────┼─────────┤
-│ cli-table │ ^0.3.1  │
-├───────────┼─────────┤
-│ commander │ ^2.5.0  │
-├───────────┼─────────┤
-│ debug     │ ^2.1.0  │
-└───────────┴─────────┘
+├────────────┼─────────┤
+│ cli-table  │ ^0.3.1  │
+├────────────┼─────────┤
+│ commander  │ ^2.5.0  │
+├────────────┼─────────┤
+│ debug      │ ^2.1.0  │
+└────────────┴─────────┘
 
-┌───────────────┬─────────┐
+┌────────────────┬─────────┐
 │ Dev-Dependency │ Version │
-├───────────────┼─────────┤
-│ mocha         │ ^2.0.1  │
-└───────────────┴─────────┘
+├────────────────┼─────────┤
+│ mocha          │ ^2.0.1  │
+├────────────────┼─────────┤
+│ should         │ ^4.4.1  │
+└────────────────┴─────────┘
 
 ```
 
@@ -57,11 +59,12 @@ __I want to see the dependencies for the project in that directory__
 ⇒  show-deps --input ../github/node-sequential-ids/
 > No Dependencies
 
-┌───────────────┬─────────┐
+┌────────────────┬─────────┐
 │ Dev-Dependency │ Version │
-├───────────────┼─────────┤
-│ mocha         │ 1.21.4  │
-└───────────────┴─────────┘
+├────────────────┼─────────┤
+│ mocha          │ 1.21.4  │
+└────────────────┴─────────┘
+
 ```
 
 __I want to see the dependencies stated in that `package.json`__
@@ -70,13 +73,14 @@ __I want to see the dependencies stated in that `package.json`__
 ⇒  show-deps --input ../github/node-simple-argparse/package.json
 > No Dependencies
 
-┌───────────────┬─────────┐
+┌────────────────┬─────────┐
 │ Dev-Dependency │ Version │
-├───────────────┼─────────┤
-│ mocha         │ 1.21.5  │
-├───────────────┼─────────┤
-│ should        │ 4.0.4   │
-└───────────────┴─────────┘
+├────────────────┼─────────┤
+│ mocha          │ 1.21.5  │
+├────────────────┼─────────┤
+│ should         │ 4.0.4   │
+└────────────────┴─────────┘
+
 ```
 
 
