@@ -8,10 +8,10 @@ A command-line utility for showing dependencies from a project's
 
 |aspect|detail|
 |-------|-----:|
-|version|0.0.0-alpha.3.0|
+|version|0.0.0-alpha.4.0|
 |dependencies|none|
 |node|0.11, 0.10|
-|last updated|13th December, 2014|
+|last updated|15th December, 2014|
 
 
 ## Installation
@@ -34,7 +34,7 @@ __I want to see all the dependencies stated in my current directory__
 ⇒  show-deps
 
 ┌───────────┬─────────┐
-│ Depedency │ Version │
+│ Dependency │ Version │
 ├───────────┼─────────┤
 │ cli-table │ ^0.3.1  │
 ├───────────┼─────────┤
@@ -44,7 +44,7 @@ __I want to see all the dependencies stated in my current directory__
 └───────────┴─────────┘
 
 ┌───────────────┬─────────┐
-│ Dev-Depedency │ Version │
+│ Dev-Dependency │ Version │
 ├───────────────┼─────────┤
 │ mocha         │ ^2.0.1  │
 └───────────────┴─────────┘
@@ -58,7 +58,7 @@ __I want to see the dependencies for the project in that directory__
 > No Dependencies
 
 ┌───────────────┬─────────┐
-│ Dev-Depedency │ Version │
+│ Dev-Dependency │ Version │
 ├───────────────┼─────────┤
 │ mocha         │ 1.21.4  │
 └───────────────┴─────────┘
@@ -71,7 +71,7 @@ __I want to see the dependencies stated in that `package.json`__
 > No Dependencies
 
 ┌───────────────┬─────────┐
-│ Dev-Depedency │ Version │
+│ Dev-Dependency │ Version │
 ├───────────────┼─────────┤
 │ mocha         │ 1.21.5  │
 ├───────────────┼─────────┤

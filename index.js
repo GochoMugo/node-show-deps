@@ -144,8 +144,8 @@ if (! program.table) {
 *  - then call .toString() cause it is the safest function I have ever seen! :-)
 */
 debug("creating tables");
-depsTable = new Table(["Depedency", "Version"]);
-devDepsTable = new Table(["Dev-Depedency", "Version"]);
+depsTable = new Table(["Dependency", "Version"]);
+devDepsTable = new Table(["Dev-Dependency", "Version"]);
 
 function fillTable(propsObj, table) {
   debug("filling a table");
