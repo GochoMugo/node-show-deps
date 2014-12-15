@@ -106,7 +106,7 @@ me waiting. :-)
 ```shell
 ⇒  show-deps -h
 
-  Usage: index.js [options]
+  Usage: show-deps [options]
 
   Options:
 
