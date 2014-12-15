@@ -9,7 +9,6 @@ A command-line utility for showing dependencies from a project's
 |aspect|detail|
 |-------|-----:|
 |version|0.0.0-alpha.4.1|
-|dependencies|none|
 |node|0.11, 0.10|
 |last updated|15th December, 2014|
 
