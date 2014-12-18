@@ -17,6 +17,11 @@ exports = module.exports = {
     description: "Command-Line Table",
     Table: require("./CliTable")
   },
+  HtmlTable: {
+    shorthand: "html",
+    description: "HTML Table",
+    Table: require("./HtmlTable")
+  },
   MarkdownTable: {
     shorthand: "md",
     description: "Markdown Table",
