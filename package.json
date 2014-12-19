@@ -28,7 +28,8 @@
   "dependencies": {
     "cli-table": "^0.3.1",
     "commander": "^2.5.0",
-    "debug": "^2.1.0"
+    "debug": "^2.1.0",
+    "tableify": "0.0.10"
   },
   "devDependencies": {
     "mocha": "^2.0.1",
