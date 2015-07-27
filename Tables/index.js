@@ -12,14 +12,14 @@
 
 
 exports = module.exports = {
-  CliTable:  {
+  CliTable: {
     shorthand: "cli",
     description: "Command-Line Table",
-    Table: require("./CliTable")
+    Table: require("./CliTable"),
   },
   MarkdownTable: {
     shorthand: "md",
     description: "Markdown Table",
-    Table: require("./MarkdownTable")
-  }
+    Table: require("./MarkdownTable"),
+  },
 };

@@ -1,16 +1,10 @@
 
 # show-deps
 
-[![Build Status](https://travis-ci.org/forfuture-dev/node-show-deps.svg?branch=master)](https://travis-ci.org/forfuture-dev/node-show-deps)
+[![Build Status](https://travis-ci.org/GochoMugo/node-show-deps.svg?branch=master)](https://travis-ci.org/GochoMugo/node-show-deps)
 
 A command-line utility for showing dependencies from a project's
 `package.json` in a fashionable way.
-
-|aspect|detail|
-|-------|-----:|
-|version|0.0.0-alpha.4.1|
-|node|0.11, 0.10|
-|last updated|15th December, 2014|
 
 
 ## Installation
@@ -30,7 +24,7 @@ use `sudo npm install --global show-deps` if necessary.
 __I want to see all the dependencies stated in my current directory__
 
 ```shell
-⇒  show-deps 
+⇒  show-deps
 
 ┌────────────┬─────────┐
 │ Dependency │ Version │
@@ -85,9 +79,7 @@ __I want to see the dependencies stated in that `package.json`__
 
 ## Tables
 
-The previous examples have shown some Guy typing all over the shell....
-BAZINGA! A table appeared! Those are CLI-tables. It is possible to produce
-the table in other formats.
+The previous examples have shown some Guy typing all over the shell.... BAZINGA! A table appeared! Those are CLI-tables. It is possible to produce the table in other formats.
 
 ```shell
 ⇒ show-deps --tables
@@ -99,9 +91,6 @@ a Markdown table and save it to a `Dependencies.md` file, I would:
 ```shell
 ⇒ show-deps --table md --output Dependencies.md
 ```
-
-If interested in hacking a new table format, [fork][fork] me and don't keep
-me waiting. :-)
 
 
 ## Help Information
@@ -126,37 +115,16 @@ me waiting. :-)
 
 ## TODO
 
-This is where we need help :-)
-
-* add comprehensive tests for table formats and integrations
-* add more table formats
-* feel good about it!
+* [ ] add comprehensive tests for table formats and integrations
+* [ ] add more table formats
+* [ ] feel good about it!
 
 
 ## LICENSE
 
-The MIT License (MIT)
+__The MIT License (MIT)__
 
-Copyright (c) 2014 Forfuture LLC <we@forfuture.co.ke>
-
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the "Software"),
-to deal in the Software without restriction, including without limitation the
-rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
-sell copies of the Software, and to permit persons to whom the Software
-is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
-OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
-HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
-WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
-OTHER DEALINGS IN THE SOFTWARE.
+Copyright (c) 2015 GochoMugo <mugo@forfuture.co.ke>
 
 
 [fork]:https://github.com/forfuture-dev/node-show-deps/fork "Fork Me!"
