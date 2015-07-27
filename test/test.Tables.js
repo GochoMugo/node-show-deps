@@ -7,6 +7,9 @@
 */
 
 
+"use strict";
+
+
 // Module imports
 var should = require("should");
 var Tables = require("../Tables");
@@ -22,14 +25,14 @@ function eachTable(func) {
   for (var table in Tables) {
     func(Tables[table].Table);
   }
-};
+}
 
 
 describe("All Tables", function() {
   it("should allow an array of [head1, head2] when instantiating", function() {
     eachTable(function(Table) {
       should(function() {
-        new Table(["head1", "head2"]);
+        new Table(["head1", "head2"]); // eslint-disable-line
       }).not.throw();
     });
   });
@@ -44,8 +47,7 @@ describe("All Tables", function() {
     });
   });
 
-  it("should have a .toString method that returns a string representation\
-  the table", function() {
+  it("should have a .toString method that returns a string representation the table", function() {
     eachTable(function(Table) {
       var table = new Table(["head1", "head2"]);
       table.pushRow(["cell1", "cell2"]);
@@ -55,8 +57,7 @@ describe("All Tables", function() {
     });
   });
 
-  it("should have a .isEmpty method that returns true if no row is pushed.\
-  Otherwise false.", function() {
+  it("should have a .isEmpty method that returns true if no row is pushed. Otherwise false.", function() {
     eachTable(function(Table) {
       var table = new Table(["head1", "head2"]);
       table.isEmpty.should.be.a.Function;

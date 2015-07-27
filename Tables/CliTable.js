@@ -5,8 +5,11 @@
 */
 
 
+"use strict";
+
+
 // Module imports
-var cli_table = require("cli-table");
+var cliTable = require("cli-table");
 
 
 // Module Variables
@@ -16,15 +19,15 @@ var CliTable;
 CliTable = (function() {
   // Constructor for the tables.
   function table(head) {
-    this.table = new cli_table({
-      head: head
+    this.table = new cliTable({
+      head: head,
     });
     this.hasRows = false;
   }
 
   // Pushing a single row
   table.prototype.pushRow = function(row) {
-    this.hasRows= true;
+    this.hasRows = true;
     this.table.push(row);
   };
 
@@ -35,7 +38,7 @@ CliTable = (function() {
 
   // Returns true/false whether the table has some rows
   table.prototype.isEmpty = function() {
-    return ! this.hasRows;
+    return !this.hasRows;
   };
 
   return table;

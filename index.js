@@ -4,9 +4,19 @@
 */
 
 
-// Module imports
+"use strict";
+
+
+// built-in modules
 var fs = require("fs");
+
+
+// npm-installed modules
+var out = require("cli-output");
 var program = require("commander");
+
+
+// own modules
 var pkg = require("./package.json");
 var Tables = require("./Tables");
 
@@ -26,7 +36,7 @@ program
   .option("-i, --input [file]", "which JSON File to read from")
   .option("-o, --output [file]", "where to write to")
   .option("-t, --table [shorthand]", "which kind of table")
-  .option("--tables", "what kind of tables are there")
+  .option("-a, --tables", "what kind of tables are there")
   .option("-v, --verbose", "do print output")
   .option("-d, --debug", "show debug information")
   .parse(process.argv);
@@ -43,12 +53,10 @@ debug = require("debug")("show-deps:cli");
 
 // More important tasks should be handled first, right? Yeah!
 if (program.tables) {
-  debug("showing the Guy the available tables");
-  var tables = "";
-  console.log("> Available Tables:");
+  debug("showing the guy the available tables");
+  out.log("available tables");
   for (var table in Tables) {
-    console.log("\t%s:\t%s", Tables[table].shorthand,
-      Tables[table].description);
+    console.log("\t%s:\t%s", Tables[table].shorthand, Tables[table].description);
   }
   process.exit(0);
 }
@@ -59,7 +67,7 @@ if (program.tables) {
 * null on error
 *
 * @param  {String}  filePath
-* @return  {JSON|null}
+* @return {JSON|null}
 */
 function readJSON(filePath) {
   try {
@@ -75,35 +83,37 @@ function readJSON(filePath) {
 /**
 * Processing program inputs.
 * If input is provided:
-*   -we try read it as JSON as is.
-*   - If that fails, we assume it is a direcotry with a package.json
-*   - If that also fails, we fucked. Exit asap!
+*   - we try read it as JSON as is.
+*   - if that fails, we assume it is a direcotry with a package.json
+*   - if that also fails, we fucked. Exit asap!
 * If no input is provided:
 *   - we assume it is the current working directory with the package.json
 */
 if (program.input) {
   debug("looking for json file from path directly");
   inputJSON = readJSON(program.input);
-  if (! inputJSON) {
+  if (!inputJSON) {
     debug("looking for json file from path, assumed as a directory");
     inputJSON = readJSON(program.input + "/package.json");
   }
-  if (! inputJSON) {
+  if (!inputJSON) {
     debug("FAILURE acquiring json file from %s", program.input);
-    console.log("> No package.json in %s", program.input);
+    out.error("no package.json at/in %s", program.input);
   }
 } else {
   debug("looking for package.json in current working directory");
   inputJSON = readJSON("./package.json");
-  if (! inputJSON) {
+  if (!inputJSON) {
     debug("FAILURE acquiring json file from cwd");
-    console.log("> No package.json in cwd!");
+    out.error("> no package.json in current working directory");
   }
 }
 
 
 // Exit with an error code 1 if we have no input json
-if (! inputJSON) {process.exit(1);}
+if (!inputJSON) {
+  process.exit(1);
+}
 
 
 /**
@@ -115,7 +125,7 @@ if (! inputJSON) {process.exit(1);}
 * kind of tables we have
 */
 debug("finding correct table");
-if (! program.table) {
+if (!program.table) {
   debug("Assuming its a CLI nerd!");
   Table = program.output
     ? Tables.MarkdownTable.Table
@@ -123,15 +133,15 @@ if (! program.table) {
 } else {
   debug("Some people have Options. We looking for the right table");
   var tableOptions = "";
-  for (var table in Tables) {
-    tableOptions += Tables[table].shorthand + " ";
-    if (program.table === Tables[table].shorthand) {
-      Table = Tables[table].Table;
+  for (var tb in Tables) {
+    tableOptions += Tables[tb].shorthand + " ";
+    if (program.table === Tables[tb].shorthand) {
+      Table = Tables[tb].Table;
     }
   }
-  if (! Table) {
-    debug("The guy mistyped? Nope. He doesn't know!'");
-    console.log("> Available table options: %s", tableOptions);
+  if (!Table) {
+    debug("The guy mistyped? Nope. He doesn't know!");
+    out.error("available table options: %s", tableOptions);
     process.exit(1);
   }
 }
@@ -141,19 +151,20 @@ if (! program.table) {
 * Generate the string
 * - pushing the dependencies into its own table and devDependencies
 *   into another.
-*  - then call .toString() cause it is the safest function I have ever seen! :-)
+* - then call .toString() cause it is the safest function I have ever seen! :-)
 */
 debug("creating tables");
-depsTable = new Table(["Dependency", "Version"]);
-devDepsTable = new Table(["Dev-Dependency", "Version"]);
+depsTable = new Table(["dependency", "version"]);
+devDepsTable = new Table(["devDependency", "version"]);
 
-function fillTable(propsObj, table) {
+
+function fillTable(propsObj, tableInstance) {
   debug("filling a table");
-  if (! propsObj) {return "";}
-  var gotProps = false;
+  if (!propsObj) {
+    return;
+  }
   for (var prop in propsObj) {
-    gotProps = true;
-    table.pushRow([prop, propsObj[prop]]);
+    tableInstance.pushRow([prop, propsObj[prop]]);
   }
 }
 
@@ -163,10 +174,10 @@ outputString = "";
 
 
 // if there are dependencies, add to output
-debug("Processing dependencies table");
+debug("processing dependencies table");
 fillTable(inputJSON.dependencies, depsTable);
 if (depsTable.isEmpty()) {
-  console.log("> No Dependencies");
+  out.log("no Dependencies");
 } else {
   outputString += depsTable.toString();
   outputString += "\n\n";
@@ -174,10 +185,10 @@ if (depsTable.isEmpty()) {
 
 
 // if there are dev-dependencies, add them too
-debug("Processing dev-dependencies table");
+debug("processing dev-dependencies table");
 fillTable(inputJSON.devDependencies, devDepsTable);
 if (devDepsTable.isEmpty()) {
-  console.log("> No Dev-Dependencies");
+  out.log("no devDependencies");
 } else {
   outputString += devDepsTable.toString();
 }
@@ -185,7 +196,7 @@ if (devDepsTable.isEmpty()) {
 
 // if there are no dependencies && dev dependencies, we get the fuck out
 if (depsTable.isEmpty() && devDepsTable.isEmpty()) {
-  debug("Nothing meaningful to output");
+  debug("nothing meaningful to output");
   process.exit(0);
 }
 
@@ -196,8 +207,7 @@ if (program.output) {
   fs.writeFile(program.output, outputString, function(error) {
     if (error) {
       debug("file writing FAILED! We all hate I/O!!!");
-      console.log("> Could not output to File: %s. Error: %s", program.output,
-        error.code);
+      out.log("could not output to file: %s. Error: %s", program.output, error.code);
       process.exit(1);
     }
   });
@@ -205,6 +215,6 @@ if (program.output) {
 
 
 //  We are either running in CLI mode or we are needed to be verbose
-if (! program.output || program.verbose) {
+if (!program.output || program.verbose) {
   console.log("\n%s\n", outputString);
 }

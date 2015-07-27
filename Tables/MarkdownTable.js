@@ -5,6 +5,9 @@
 */
 
 
+"use strict";
+
+
 // Module variables
 var MarkdownTable;
 
@@ -19,7 +22,7 @@ MarkdownTable = (function() {
   // Pushing a single row
   table.prototype.pushRow = function(row) {
     this.rows.push(row);
-  }
+  };
 
   // Return string representation of the table
   table.prototype.toString = function() {
@@ -29,7 +32,7 @@ MarkdownTable = (function() {
       output += rowToString(this.rows[row]);
     }
     return output;
-  }
+  };
 
   // Returns true/false whether the table has some rows
   table.prototype.isEmpty = function() {
