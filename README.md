@@ -1,10 +1,11 @@
 
 # show-deps
 
-[![Build Status](https://travis-ci.org/GochoMugo/node-show-deps.svg?branch=master)](https://travis-ci.org/GochoMugo/node-show-deps)
-
-A command-line utility for showing dependencies from a project's
+> A command-line utility for showing dependencies from a Node.js project's
 `package.json` in a fashionable way.
+
+
+[![node](https://img.shields.io/node/v/show-deps.svg?style=flat-square)](https://www.npmjs.com/package/show-deps) [![npm](https://img.shields.io/npm/v/show-deps.svg?style=flat-square)](https://www.npmjs.com/package/show-deps) [![Travis](https://img.shields.io/travis/GochoMugo/node-show-deps.svg?style=flat-square)](https://travis-ci.org/GochoMugo/node-show-deps) [![Gemnasium](https://img.shields.io/gemnasium/GochoMugo/node-show-deps.svg?style=flat-square)](https://gemnasium.com/GochoMugo/node-show-deps) [![Coveralls](https://img.shields.io/coveralls/GochoMugo/node-show-deps.svg?style=flat-square)](https://coveralls.io/github/GochoMugo/node-show-deps?branch=master)
 
 
 ## Installation
@@ -107,7 +108,7 @@ a Markdown table and save it to a `Dependencies.md` file, I would:
     -i, --input [file]       which JSON File to read from
     -o, --output [file]      where to write to
     -t, --table [shorthand]  which kind of table
-    --tables                 what kind of tables are there
+    -a, --tables             what kind of tables are there
     -v, --verbose            do print output
     -d, --debug              show debug information
 ```
